@@ -51,10 +51,10 @@ def search(q):
         "Content-Type": "application/json",
     })
     
-         try:
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.load(r)
-except urllib.error.HTTPError as e:
+             try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return json.load(r)
+    except urllib.error.HTTPError as e:
     body = e.read().decode("utf-8", errors="replace")
     raise SystemExit(f"Serper API HTTP {e.code}: {body}")
 def clean(s):
