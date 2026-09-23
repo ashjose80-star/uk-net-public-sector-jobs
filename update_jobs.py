@@ -51,7 +51,7 @@ def search(q):
         "Content-Type": "application/json",
     })
     
-             try:
+         try:
     with urllib.request.urlopen(req, timeout=30) as r:
         return json.load(r)
 except urllib.error.HTTPError as e:
