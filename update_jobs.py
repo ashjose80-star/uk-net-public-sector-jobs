@@ -25,11 +25,14 @@ DATA_FILE = ROOT / "jobs.json"
 API = "https://google.serper.dev/search"
 
 QUERIES = [
-    'site:jobs.service.gov.uk ("C#" OR ".NET" OR "ASP.NET" OR "ASP.NET Core") ("Developer" OR "Engineer" OR "Software")',
-    'site:jobs.ac.uk ("C#" OR ".NET" OR "ASP.NET") ("Developer" OR "Software Engineer" OR "Applications Developer") ("University" OR "College")',
-    'site:findajob.dwp.gov.uk ("C#" OR ".NET" OR "ASP.NET") ("Developer" OR "Software Engineer")',
-    'site:*.gov.uk/jobs ("C#" OR ".NET" OR "ASP.NET") ("Developer" OR "Software Engineer")',
-    'site:*.ac.uk/jobs ("C#" OR ".NET" OR "ASP.NET") ("Developer" OR "Software Engineer")',
+    'site:jobs.service.gov.uk C# developer',
+    'site:jobs.service.gov.uk .NET developer',
+    'site:jobs.ac.uk C# developer university',
+    'site:jobs.ac.uk .NET developer university',
+    'site:findajob.dwp.gov.uk C# developer',
+    'site:findajob.dwp.gov.uk .NET developer',
+    'site:gov.uk C# developer council jobs',
+    'site:gov.uk .NET developer council jobs',
 ]
 
 TRUSTED_HOSTS = (
