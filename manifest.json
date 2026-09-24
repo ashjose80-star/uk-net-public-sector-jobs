@@ -1,0 +1,9 @@
+{
+  "name": "UK .NET Public Sector Jobs",
+  "short_name": "UK .NET Jobs",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#172033",
+  "theme_color": "#172033",
+  "description": "UK public-sector .NET, C# and related software vacancies"
+}
