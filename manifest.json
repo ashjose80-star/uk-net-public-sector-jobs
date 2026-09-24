@@ -2,8 +2,21 @@
   "name": "UK .NET Public Sector Jobs",
   "short_name": "UK .NET Jobs",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#172033",
   "theme_color": "#172033",
-  "description": "UK public-sector .NET, C# and related software vacancies"
+  "description": "UK public-sector .NET, C# and related software vacancies",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
