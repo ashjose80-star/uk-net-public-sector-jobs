@@ -1,6 +1,19 @@
 {
   "active": [
     {
+      "org": "University of Oxford Strong hands-on development expertise in at least three of",
+      "sector": "University",
+      "location": "UK",
+      "title": "Enterprise Applications Senior Developer at University of Oxford",
+      "salary": "Not captured",
+      "posted": "Jul 27, 2026",
+      "closing": "",
+      "match": "Exact .NET",
+      "tech": ".NET / C# (detected in search result)",
+      "url": "https://www.jobs.ac.uk/job/DSK088/enterprise-applications-senior-developer",
+      "confidence": "Automated daily search lead; verify employer vacancy"
+    },
+    {
       "org": "University of Essex",
       "sector": "University",
       "location": "Colchester / Essex",
@@ -221,6 +234,15 @@
       "date": "2026-07-13",
       "match": "Exact .NET",
       "tech": "C#.NET; Java; PHP; React/Vue/Angular"
+    },
+    {
+      "org": "University of Oxford Strong hands-on development expertise in at least three of",
+      "sector": "University",
+      "title": "Enterprise Applications Senior Developer at University of Oxford",
+      "date": "2026-09-24",
+      "match": "Exact .NET",
+      "tech": ".NET / C# (detected in search result)",
+      "url": "https://www.jobs.ac.uk/job/DSK088/enterprise-applications-senior-developer"
     }
   ],
   "coverage": [
@@ -249,5 +271,5 @@
       "note": "To be added to the organisation coverage table and daily search queue"
     }
   ],
-  "updated_at": "2026-09-23T20:55:05.264404+00:00"
+  "updated_at": "2026-09-24T05:43:00.492679+00:00"
 }
