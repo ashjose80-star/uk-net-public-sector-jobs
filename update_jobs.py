@@ -7,11 +7,6 @@ Requires:
 
 Run:
   python update_jobs.py
-
-The script searches several public-sector job domains using Serper's Google Search API,
-keeps results that look like UK public-sector .NET/C# vacancies, and merges them into
-jobs.json. Results are labelled as automated leads so they can be checked before being
-treated as verified vacancies.
 """
 import json, os, re, time
 from datetime import datetime, timezone
@@ -44,6 +39,7 @@ TRUSTED_HOSTS = (
 TECH_RE = re.compile(r'(?i)\b(?:\.net(?:\s*(?:core|framework))?|asp\.net|c#|c sharp|dotnet)\b')
 ROLE_RE = re.compile(r'(?i)\b(?:developer|software engineer|programmer|applications developer|web developer|digital developer|development manager)\b')
 
+
 def search(q):
     key = os.environ.get("SERPER_API_KEY")
     if not key:
@@ -53,37 +49,97 @@ def search(q):
         "X-API-KEY": key,
         "Content-Type": "application/json",
     })
-    
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
             return json.load(r)
     except urllib.error.HTTPError as e:
         body = e.read().decode("utf-8", errors="replace")
         raise SystemExit(f"Serper API HTTP {e.code}: {body}")
+
+
 def clean(s):
     return re.sub(r"\s+", " ", s or "").strip()
+
 
 def infer_org(title, link, snippet):
     host = urlparse(link).netloc.lower()
     text = f"{title} {snippet}"
-    # Common host-specific hints.
+
+    if "jobs.ac.uk" in host or ".ac.uk" in host:
+        m = re.search(r'(?i)\bat\s+((?:University|College) of [A-Z][A-Za-z &\'-]+)$', title)
+        if m:
+            return clean(m.group(1))
+        m = re.search(r'(?i)\b((?:University|College) of [A-Z][A-Za-z &\'-]+)', text)
+        if m:
+            return clean(m.group(1))
+        return "Higher-education provider"
+
     if "jobs.service.gov.uk" in host:
         m = re.search(r'(?i)\b(?:Department for [A-Z][A-Za-z &-]+|[A-Z][A-Za-z &-]+ Council|NHS [A-Za-z &-]+)\b', text)
-        return m.group(0).strip() if m else "UK Government"
-    if "jobs.ac.uk" in host:
-        m = re.search(r'(?i)\b(?:University|College) of [A-Z][A-Za-z &\'-]+', text)
-        return m.group(0).strip() if m else "Higher-education provider"
+        return clean(m.group(0)) if m else "UK Government"
+
+    m = re.search(r'(?i)\b([A-Z][A-Za-z &-]+ Council)\b', text)
+    if m:
+        return clean(m.group(1))
     return "Public-sector employer"
+
 
 def sector_for(org, link):
     host = urlparse(link).netloc.lower()
+    if "council" in org.lower():
+        return "Council"
     if "jobs.ac.uk" in host or ".ac.uk" in host:
         return "University"
     if "gov.uk" in host:
         return "Government"
-    if "council" in org.lower():
-        return "Council"
     return "Government"
+
+
+def parse_closing_date(value):
+    value = clean(value)
+    if not value:
+        return None
+    formats = (
+        "%Y-%m-%d",
+        "%d %B %Y",
+        "%d %b %Y",
+        "%B %d, %Y",
+        "%b %d, %Y",
+    )
+    for fmt in formats:
+        try:
+            return datetime.strptime(value, fmt).date()
+        except ValueError:
+            pass
+    return None
+
+
+def is_expired(job):
+    closing = parse_closing_date(job.get("closing", ""))
+    return bool(closing and closing < datetime.now(timezone.utc).date())
+
+
+def clean_existing_job(job):
+    job = dict(job)
+    title = clean(job.get("title", ""))
+    link = clean(job.get("url", ""))
+    snippet = clean(job.get("snippet", ""))
+    org = clean(job.get("org", ""))
+
+    if "jobs.ac.uk" in urlparse(link).netloc.lower():
+        m = re.search(r'(?i)\bat\s+((?:University|College) of [A-Z][A-Za-z &\'-]+)$', title)
+        if m:
+            org = clean(m.group(1))
+        elif "University of Oxford" in org:
+            org = "University of Oxford"
+
+    if not org or " Strong hands-on " in org:
+        org = infer_org(title, link, snippet)
+
+    job["org"] = org
+    job["sector"] = sector_for(org, link)
+    return job
+
 
 def make_item(x):
     title = clean(x.get("title"))
@@ -112,13 +168,13 @@ def make_item(x):
         "confidence": "Automated daily search lead; verify employer vacancy",
     }
 
+
 def main():
     if DATA_FILE.exists():
         data = json.loads(DATA_FILE.read_text(encoding="utf-8"))
     else:
         data = {"active": [], "leads": [], "history": [], "coverage": []}
 
-    existing_urls = {x.get("url") for x in data.get("active", []) if x.get("url")}
     found = {}
     for q in QUERIES:
         result = search(q)
@@ -128,12 +184,20 @@ def main():
                 found[job["url"]] = job
         time.sleep(0.5)
 
-    # Put newly discovered jobs into active, but keep existing records first.
+    cleaned_existing = []
+    expired_count = 0
+    for existing in data.get("active", []):
+        job = clean_existing_job(existing)
+        if is_expired(job):
+            expired_count += 1
+            continue
+        cleaned_existing.append(job)
+
+    existing_urls = {x.get("url") for x in cleaned_existing if x.get("url")}
     new_items = [v for k, v in found.items() if k not in existing_urls]
-    data["active"] = new_items + data.get("active", [])
+    data["active"] = new_items + cleaned_existing
     data["active"] = data["active"][:200]
 
-    # Record daily discovery evidence in history without duplicating URLs.
     seen_hist = {(x.get("url"), x.get("date")) for x in data.get("history", [])}
     today = datetime.now(timezone.utc).date().isoformat()
     for job in new_items:
@@ -151,7 +215,8 @@ def main():
 
     data["updated_at"] = datetime.now(timezone.utc).isoformat()
     DATA_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"Added {len(new_items)} new automated leads; total active: {len(data['active'])}")
+    print(f"Added {len(new_items)} new automated leads; removed {expired_count} expired vacancies; total active: {len(data['active'])}")
+
 
 if __name__ == "__main__":
     main()
