@@ -1,9 +1,9 @@
 name: Daily UK .NET public-sector jobs update
 
 on:
-  schedule:
+  schedule: 
     - cron: "0 8 * * *"
-    timezone: "Europe/London"
+      timezone: "Europe/London"
   workflow_dispatch:
 
 permissions:
