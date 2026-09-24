@@ -48,7 +48,7 @@ def search(q):
     key = os.environ.get("SERPER_API_KEY")
     if not key:
         raise SystemExit("SERPER_API_KEY is not set")
-    payload = json.dumps({"q": q, "num": 20, "gl": "gb", "hl": "en"}).encode()
+    payload = json.dumps({"q": q, "num": 10, "gl": "gb", "hl": "en"}).encode()
     req = urllib.request.Request(API, data=payload, headers={
         "X-API-KEY": key,
         "Content-Type": "application/json",
