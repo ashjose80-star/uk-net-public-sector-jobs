@@ -1,7 +1,20 @@
 {
   "active": [
     {
-      "org": "University of Oxford Strong hands-on development expertise in at least three of",
+      "org": "UK Government",
+      "sector": "Government",
+      "location": "UK",
+      "title": "View job - Lead Software Developer - Work Hub",
+      "salary": "Not captured",
+      "posted": "Aug 11, 2026",
+      "closing": "",
+      "match": "Exact .NET",
+      "tech": ".NET / C# (detected in search result)",
+      "url": "https://www.jobs.service.gov.uk/jobs/6a7b63eb55cde7f280fd0ca9",
+      "confidence": "Automated daily search lead; verify employer vacancy"
+    },
+    {
+      "org": "University of Oxford",
       "sector": "University",
       "location": "UK",
       "title": "Enterprise Applications Senior Developer at University of Oxford",
@@ -25,19 +38,6 @@
       "tech": "C#; .NET Core; AWS; Terraform/CDK; CI/CD; Docker; Kubernetes; relational/NoSQL",
       "url": "https://www.jobs.ac.uk/job/DSH846/senior-software-engineer",
       "confidence": "Verified vacancy; jobs.ac.uk listing"
-    },
-    {
-      "org": "DWP Digital",
-      "sector": "Government",
-      "location": "Newcastle upon Tyne",
-      "title": "Data Engineer Level I",
-      "salary": "£38,772",
-      "posted": "2026-08-19",
-      "closing": "2026-09-02",
-      "match": "Exact .NET ecosystem",
-      "tech": ".NET 4.8; C#; JavaScript; C++; Java; SQL; PySpark; AWS; ETL",
-      "url": "https://www.jobs.service.gov.uk/jobs/6a85efb1123dc116db91a7e1",
-      "confidence": "Verified government vacancy; closing date has passed"
     },
     {
       "org": "Liverpool City Council",
@@ -243,6 +243,15 @@
       "match": "Exact .NET",
       "tech": ".NET / C# (detected in search result)",
       "url": "https://www.jobs.ac.uk/job/DSK088/enterprise-applications-senior-developer"
+    },
+    {
+      "org": "UK Government",
+      "sector": "Government",
+      "title": "View job - Lead Software Developer - Work Hub",
+      "date": "2026-09-24",
+      "match": "Exact .NET",
+      "tech": ".NET / C# (detected in search result)",
+      "url": "https://www.jobs.service.gov.uk/jobs/6a7b63eb55cde7f280fd0ca9"
     }
   ],
   "coverage": [
@@ -271,5 +280,5 @@
       "note": "To be added to the organisation coverage table and daily search queue"
     }
   ],
-  "updated_at": "2026-09-24T06:00:05.422773+00:00"
+  "updated_at": "2026-09-24T06:18:36.073927+00:00"
 }
