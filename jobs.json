@@ -40,19 +40,6 @@
       "confidence": "Verified vacancy; jobs.ac.uk listing"
     },
     {
-      "org": "Liverpool City Council",
-      "sector": "Council",
-      "location": "Liverpool",
-      "title": "Web Developer",
-      "salary": "Not captured",
-      "posted": "2026-06-18",
-      "closing": "",
-      "match": "Exact .NET",
-      "tech": ".NET; Umbraco; C#; HTML5; SQL Server",
-      "url": "https://jobs.liverpool.gov.uk/jobs/job/Web-Developer/1908",
-      "confidence": "Verified employer vacancy"
-    },
-    {
       "org": "Oxfordshire County Council",
       "sector": "Council",
       "location": "Oxford",
@@ -252,6 +239,16 @@
       "match": "Exact .NET",
       "tech": ".NET / C# (detected in search result)",
       "url": "https://www.jobs.service.gov.uk/jobs/6a7b63eb55cde7f280fd0ca9"
+    },
+    {
+      "org": "Liverpool City Council",
+      "sector": "Council",
+      "title": "Web Developer",
+      "date": "2026-06-18",
+      "match": "Exact .NET",
+      "tech": ".NET; Umbraco; C#; HTML5; SQL Server",
+      "status": "Closed/Expired",
+      "url": "https://jobs.liverpool.gov.uk/jobs/job/Web-Developer/1908"
     }
   ],
   "coverage": [
@@ -280,5 +277,131 @@
       "note": "To be added to the organisation coverage table and daily search queue"
     }
   ],
-  "updated_at": "2026-09-25T14:28:51.837764+00:00"
+  "council_watchlist": [
+    {
+      "org": "Liverpool City Council",
+      "tier": 1,
+      "historical_net_evidence": 4,
+      "search_frequency": "Daily"
+    },
+    {
+      "org": "Bristol City Council",
+      "tier": 1,
+      "historical_net_evidence": 1,
+      "search_frequency": "Daily"
+    },
+    {
+      "org": "Aberdeenshire Council",
+      "tier": 1,
+      "historical_net_evidence": 1,
+      "search_frequency": "Daily"
+    },
+    {
+      "org": "Torbay Council",
+      "tier": 2,
+      "historical_net_evidence": 1,
+      "search_frequency": "Frequent"
+    },
+    {
+      "org": "East Suffolk Council",
+      "tier": 2,
+      "historical_net_evidence": 1,
+      "search_frequency": "Frequent"
+    },
+    {
+      "org": "North Lanarkshire Council",
+      "tier": 2,
+      "historical_net_evidence": 1,
+      "search_frequency": "Daily"
+    },
+    {
+      "org": "Devon County Council",
+      "tier": 2,
+      "historical_net_evidence": 1,
+      "search_frequency": "Frequent"
+    },
+    {
+      "org": "Northumberland County Council",
+      "tier": 2,
+      "historical_net_evidence": 1,
+      "search_frequency": "Frequent"
+    },
+    {
+      "org": "Nottingham City Council",
+      "tier": 2,
+      "historical_net_evidence": 1,
+      "search_frequency": "Frequent"
+    },
+    {
+      "org": "Huntingdonshire District Council",
+      "tier": 2,
+      "historical_net_evidence": 1,
+      "search_frequency": "Frequent"
+    },
+    {
+      "org": "Hampshire County Council",
+      "tier": 2,
+      "historical_net_evidence": 1,
+      "search_frequency": "Frequent"
+    },
+    {
+      "org": "Leicestershire County Council",
+      "tier": 2,
+      "historical_net_evidence": 1,
+      "search_frequency": "Frequent"
+    },
+    {
+      "org": "South Hams District Council",
+      "tier": 2,
+      "historical_net_evidence": 1,
+      "search_frequency": "Frequent"
+    },
+    {
+      "org": "Rushmoor Borough Council",
+      "tier": 2,
+      "historical_net_evidence": 1,
+      "search_frequency": "Frequent"
+    },
+    {
+      "org": "Warwickshire County Council",
+      "tier": 2,
+      "historical_net_evidence": 1,
+      "search_frequency": "Frequent"
+    },
+    {
+      "org": "Oxfordshire County Council",
+      "tier": 2,
+      "historical_net_evidence": 1,
+      "search_frequency": "Daily"
+    },
+    {
+      "org": "Richmond and Wandsworth Councils",
+      "tier": 1,
+      "historical_net_evidence": 1,
+      "search_frequency": "Daily"
+    },
+    {
+      "org": "Tameside Metropolitan Borough Council",
+      "tier": 1,
+      "historical_net_evidence": 1,
+      "search_frequency": "Daily"
+    },
+    {
+      "org": "City of Edinburgh Council",
+      "tier": 3,
+      "historical_net_evidence": 0,
+      "search_frequency": "Frequent"
+    }
+  ],
+  "watchlist_policy": {
+    "purpose": "Use historical .NET evidence to prioritize daily council vacancy searches without treating related Microsoft-stack roles as exact .NET matches.",
+    "tier_1": "Proven or currently advertising .NET councils; search daily and verify employer vacancy pages.",
+    "tier_2": "Credible historical developer/.NET evidence; search frequently and promote after a confirmed .NET vacancy.",
+    "tier_3": "Remaining councils; broad .NET/C#/ASP.NET search and automatic promotion after confirmed evidence.",
+    "permanent_only_active": true,
+    "temporary_or_fixed_term": "Keep as historical/watchlist evidence; do not place in Active unless a vacancy is confirmed permanent.",
+    "exact_match_rule": "Exact .NET requires explicit .NET/C#/ASP.NET/.NET Core evidence in the vacancy.",
+    "related_match_rule": "Related covers Microsoft/Azure/Power Platform/development roles where .NET is not explicit."
+  },
+  "updated_at": "2026-09-25T15:00:00+00:00"
 }
