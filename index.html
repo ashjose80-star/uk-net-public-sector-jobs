@@ -1,102 +1,203 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#172033">
 <title>UK .NET Public Sector Jobs</title>
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#f3f5f8;color:#172033;font-family:system-ui,-apple-system,Segoe UI,sans-serif}
-header{background:#172033;color:white;padding:20px 16px;position:sticky;top:0;z-index:5}
-header h1{margin:0;font-size:21px}
-header p{margin:4px 0 0;color:#cbd5e1;font-size:12px}
-main{max-width:1200px;margin:auto;padding:12px 12px 72px}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f5f8;color:#172033}
+header{background:#172033;color:white;padding:20px}
+main{max-width:1100px;margin:auto;padding:15px}
+h1{margin:0;font-size:24px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}
+.stat{background:white;padding:15px;border-radius:10px;border:1px solid #ddd}
+.num{font-size:25px;font-weight:bold}
+.controls{background:white;padding:12px;border-radius:10px;margin-bottom:15px}
+input,select{padding:11px;border:1px solid #ccc;border-radius:7px;margin:4px}
+.card{background:white;border:1px solid #ddd;border-radius:10px;padding:15px;margin:10px 0}
+.card h2{margin:0 0 6px;font-size:18px}
+.small{color:#64748b;font-size:13px}
+.tag{display:inline-block;background:#e9eef5;padding:4px 7px;border-radius:5px;margin:4px 2px;font-size:12px}
+a{color:#1456a0;font-weight:bold}
+@media(max-width:600px){
+input,select{width:100%;margin:5px 0}
+.stats{display:grid;grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
 
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
-.kpi{background:white;border:1px solid #dbe2ea;border-radius:13px;padding:11px}
-.num{font-size:22px;font-weight:800}
-.muted{font-size:11px;color:#64748b}
+<body>
 
-.search-form{
-display:grid;
-grid-template-columns:2fr 1fr 1fr 1fr auto;
-gap:9px;
-background:white;
-border:1px solid #dbe2ea;
-border-radius:14px;
-padding:12px;
-margin-bottom:10px
+<header>
+<h1>UK .NET Public Sector Jobs</h1>
+<div>UK councils, universities and government</div>
+</header>
+
+<main>
+
+<div class="stats">
+<div class="stat"><div class="num" id="total">0</div>Active jobs</div>
+<div class="stat"><div class="num" id="exact">0</div>Exact .NET</div>
+<div class="stat"><div class="num" id="council">0</div>Council</div>
+<div class="stat"><div class="num" id="university">0</div>University</div>
+</div>
+
+<div class="controls">
+<input id="search" placeholder="Search jobs, councils or skills">
+<select id="sector">
+<option value="">All sectors</option>
+<option value="Council">Council</option>
+<option value="University">University</option>
+<option value="Government">Government</option>
+</select>
+</div>
+
+<div id="message">Loading latest jobs...</div>
+<div id="jobs"></div>
+
+</main>
+
+<script>
+
+let data={};
+
+function safe(value){
+return String(value||"")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;");
 }
 
-.field{display:flex;flex-direction:column;gap:5px}
-.field label{font-size:11px;font-weight:700;color:#475569}
+function activeJobs(){
 
-input,select{
-min-height:42px;
-border:1px solid #dbe2ea;
-border-radius:9px;
-padding:8px 10px;
-font-size:14px;
-background:white;
-color:#172033
+let now=new Date();
+
+return (data.active||[]).filter(function(j){
+
+if(j.status && /closed|expired/i.test(j.status)) return false;
+
+if(j.permanent===false) return false;
+
+if(j.employment_type &&
+/temporary|fixed[- ]?term/i.test(j.employment_type))
+return false;
+
+if(j.closing){
+
+let d=new Date(j.closing);
+
+if(!isNaN(d) && d<now) return false;
+
 }
 
-button{
-cursor:pointer
+return true;
+
+});
+
 }
 
-.clear-btn{
-min-height:42px;
-border:1px solid #cbd5e1;
-border-radius:9px;
-padding:8px 13px;
-font-size:13px;
-background:#f8fafc
+function render(){
+
+let search=document.getElementById("search").value.toLowerCase();
+let sector=document.getElementById("sector").value;
+
+let jobs=activeJobs().filter(function(j){
+
+let text=JSON.stringify(j).toLowerCase();
+
+return (!search || text.includes(search)) &&
+(!sector || j.sector===sector);
+
+});
+
+document.getElementById("total").textContent=jobs.length;
+
+document.getElementById("exact").textContent=
+jobs.filter(j=>/exact/i.test(j.match||"")).length;
+
+document.getElementById("council").textContent=
+jobs.filter(j=>j.sector==="Council").length;
+
+document.getElementById("university").textContent=
+jobs.filter(j=>j.sector==="University").length;
+
+document.getElementById("message").textContent=
+jobs.length+" active jobs found";
+
+document.getElementById("jobs").innerHTML=
+jobs.map(function(j){
+
+return `
+<div class="card">
+
+<h2>${safe(j.title)}</h2>
+
+<strong>${safe(j.org)}</strong>
+
+<div class="small">
+${safe(j.location)}
+</div>
+
+<div>
+<span class="tag">${safe(j.match)}</span>
+<span class="tag">${safe(j.tech)}</span>
+</div>
+
+<p>
+<strong>Salary:</strong> ${safe(j.salary||"Not captured")}<br>
+<strong>Posted:</strong> ${safe(j.posted||"Not captured")}<br>
+<strong>Closing:</strong> ${safe(j.closing||"Not specified")}
+</p>
+
+<a href="${safe(j.url)}" target="_blank">
+Open job
+</a>
+
+</div>
+`;
+
+}).join("") ||
+
+'<div class="card">No matching active jobs.</div>';
+
 }
 
-.tabs{
-display:flex;
-gap:6px;
-overflow:auto;
-margin-bottom:9px
+async function loadJobs(){
+
+try{
+
+let response=await fetch(
+"jobs.json?time="+Date.now(),
+{cache:"no-store"}
+);
+
+if(!response.ok)
+throw new Error("jobs.json error "+response.status);
+
+data=await response.json();
+
+render();
+
+}catch(error){
+
+document.getElementById("message").textContent=
+"Unable to load jobs.json: "+error.message;
+
 }
 
-.tabs button{
-border:1px solid #dbe2ea;
-background:white;
-border-radius:9px;
-padding:9px 12px;
-white-space:nowrap
 }
 
-.tabs button.active{
-background:#172033;
-color:white
-}
+document.getElementById("search")
+.addEventListener("input",render);
 
-.list{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:9px
-}
+document.getElementById("sector")
+.addEventListener("change",render);
 
-.job,.coverage{
-background:white;
-border:1px solid #dbe2ea;
-border-radius:13px;
-padding:13px
-}
+loadJobs();
 
-.job h3{
-margin:0 0 3px;
-font-size:16px
-}
+</script>
 
-.org{font-weight:700}
-
-.meta{
-display:flex;
-flex-wrap:wrap;
-gap:5px
+</body>
+</html>
