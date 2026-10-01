@@ -4,6 +4,19 @@
       "org": "UK Government",
       "sector": "Government",
       "location": "UK",
+      "title": "View job - Lead .Net Developer - Work Hub",
+      "salary": "Not captured",
+      "posted": "5 days ago",
+      "closing": "",
+      "match": "Exact .NET",
+      "tech": ".NET / C# (detected in search result)",
+      "url": "https://www.jobs.service.gov.uk/jobs/6ab732f6b16a3caee005632f",
+      "confidence": "Automated daily search lead; verify employer vacancy"
+    },
+    {
+      "org": "UK Government",
+      "sector": "Government",
+      "location": "UK",
       "title": "View job - .NET Developer - Work Hub",
       "salary": "Not captured",
       "posted": "Jul 30, 2026",
@@ -271,6 +284,15 @@
       "match": "Exact .NET",
       "tech": ".NET / C# (detected in search result)",
       "url": "https://www.jobs.service.gov.uk/jobs/6a6b931f6e4ea0a198b89288"
+    },
+    {
+      "org": "UK Government",
+      "sector": "Government",
+      "title": "View job - Lead .Net Developer - Work Hub",
+      "date": "2026-10-01",
+      "match": "Exact .NET",
+      "tech": ".NET / C# (detected in search result)",
+      "url": "https://www.jobs.service.gov.uk/jobs/6ab732f6b16a3caee005632f"
     }
   ],
   "coverage": [
@@ -425,5 +447,5 @@
     "exact_match_rule": "Exact .NET requires explicit .NET/C#/ASP.NET/.NET Core evidence in the vacancy.",
     "related_match_rule": "Related covers Microsoft/Azure/Power Platform/development roles where .NET is not explicit."
   },
-  "updated_at": "2026-09-30T07:06:00.650715+00:00"
+  "updated_at": "2026-10-01T07:06:04.899172+00:00"
 }
