@@ -4,6 +4,19 @@
       "org": "UK Government",
       "sector": "Government",
       "location": "UK",
+      "title": "View job - Senior Front End Developer - Work Hub",
+      "salary": "Not captured",
+      "posted": "Aug 6, 2026",
+      "closing": "",
+      "match": "Exact .NET",
+      "tech": ".NET / C# (detected in search result)",
+      "url": "https://www.jobs.service.gov.uk/jobs/6a7433effcfa12ee09121707",
+      "confidence": "Automated daily search lead; verify employer vacancy"
+    },
+    {
+      "org": "UK Government",
+      "sector": "Government",
+      "location": "UK",
       "title": "View job - Lead .Net Developer - Work Hub",
       "salary": "Not captured",
       "posted": "5 days ago",
@@ -293,6 +306,15 @@
       "match": "Exact .NET",
       "tech": ".NET / C# (detected in search result)",
       "url": "https://www.jobs.service.gov.uk/jobs/6ab732f6b16a3caee005632f"
+    },
+    {
+      "org": "UK Government",
+      "sector": "Government",
+      "title": "View job - Senior Front End Developer - Work Hub",
+      "date": "2026-10-06",
+      "match": "Exact .NET",
+      "tech": ".NET / C# (detected in search result)",
+      "url": "https://www.jobs.service.gov.uk/jobs/6a7433effcfa12ee09121707"
     }
   ],
   "coverage": [
@@ -447,5 +469,5 @@
     "exact_match_rule": "Exact .NET requires explicit .NET/C#/ASP.NET/.NET Core evidence in the vacancy.",
     "related_match_rule": "Related covers Microsoft/Azure/Power Platform/development roles where .NET is not explicit."
   },
-  "updated_at": "2026-10-05T07:10:11.247322+00:00"
+  "updated_at": "2026-10-06T07:06:22.064481+00:00"
 }
