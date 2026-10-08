@@ -4,6 +4,19 @@
       "org": "UK Government",
       "sector": "Government",
       "location": "UK",
+      "title": "View job - Senior Software Developer - Work Hub",
+      "salary": "Not captured",
+      "posted": "6 days ago",
+      "closing": "",
+      "match": "Exact .NET",
+      "tech": ".NET / C# (detected in search result)",
+      "url": "https://www.jobs.service.gov.uk/jobs/6abfd6ebe7d4cf609bd4b39f",
+      "confidence": "Automated daily search lead; verify employer vacancy"
+    },
+    {
+      "org": "UK Government",
+      "sector": "Government",
+      "location": "UK",
       "title": "View job - Senior Front End Developer - Work Hub",
       "salary": "Not captured",
       "posted": "Aug 6, 2026",
@@ -116,19 +129,6 @@
       "tech": "ASP.NET; C#; React; Next.js; MongoDB; GitHub; AI tooling",
       "url": "https://www.simplyhired.co.uk/job/eIIjj6r655KEpaHEcQNA6SqnwUQFalRZdlkB4_jeR-U1i5yO6iqrAw",
       "confidence": "Current search result; verify employer page"
-    },
-    {
-      "org": "University of Glasgow",
-      "sector": "University",
-      "location": "Glasgow",
-      "title": "Research Software Engineer",
-      "salary": "Not captured",
-      "posted": "2026-09-09",
-      "closing": "2026-10-07",
-      "match": "Related",
-      "tech": "C/C++; Python; AI; HPC; .NET not explicit",
-      "url": "https://www.jobs.gla.ac.uk/job/research-software-engineer-6022416",
-      "confidence": "Verified employer vacancy"
     },
     {
       "org": "Queen's University Belfast",
@@ -315,6 +315,15 @@
       "match": "Exact .NET",
       "tech": ".NET / C# (detected in search result)",
       "url": "https://www.jobs.service.gov.uk/jobs/6a7433effcfa12ee09121707"
+    },
+    {
+      "org": "UK Government",
+      "sector": "Government",
+      "title": "View job - Senior Software Developer - Work Hub",
+      "date": "2026-10-08",
+      "match": "Exact .NET",
+      "tech": ".NET / C# (detected in search result)",
+      "url": "https://www.jobs.service.gov.uk/jobs/6abfd6ebe7d4cf609bd4b39f"
     }
   ],
   "coverage": [
@@ -469,5 +478,5 @@
     "exact_match_rule": "Exact .NET requires explicit .NET/C#/ASP.NET/.NET Core evidence in the vacancy.",
     "related_match_rule": "Related covers Microsoft/Azure/Power Platform/development roles where .NET is not explicit."
   },
-  "updated_at": "2026-10-07T07:06:59.672413+00:00"
+  "updated_at": "2026-10-08T07:08:32.705575+00:00"
 }
