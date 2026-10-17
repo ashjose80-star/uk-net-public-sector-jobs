@@ -105,19 +105,6 @@
       "confidence": "Verified vacancy; jobs.ac.uk listing"
     },
     {
-      "org": "Oxfordshire County Council",
-      "sector": "Council",
-      "location": "Oxford",
-      "title": "Software Developer",
-      "salary": "£51,928–£55,225",
-      "posted": "2026-09-17",
-      "closing": "2026-10-16",
-      "match": "Related",
-      "tech": "Microsoft; Azure; APIs; Power Platform; .NET not explicit",
-      "url": "https://www.jobs.service.gov.uk/jobs/6aabc38c46fdd8defc2e367c",
-      "confidence": "Verified vacancy; .NET not explicit"
-    },
-    {
       "org": "Richmond and Wandsworth Councils",
       "sector": "Council",
       "location": "London",
@@ -500,5 +487,5 @@
     "exact_match_rule": "Exact .NET requires explicit .NET/C#/ASP.NET/.NET Core evidence in the vacancy.",
     "related_match_rule": "Related covers Microsoft/Azure/Power Platform/development roles where .NET is not explicit."
   },
-  "updated_at": "2026-10-16T07:26:08.143930+00:00"
+  "updated_at": "2026-10-17T07:23:11.736046+00:00"
 }
