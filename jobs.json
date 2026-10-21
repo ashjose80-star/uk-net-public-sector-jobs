@@ -4,6 +4,19 @@
       "org": "UK Government",
       "sector": "Government",
       "location": "UK",
+      "title": "View job - Senior Software Developer - Work Hub",
+      "salary": "Not captured",
+      "posted": "Oct 2, 2026",
+      "closing": "",
+      "match": "Exact .NET",
+      "tech": ".NET / C# (detected in search result)",
+      "url": "https://www.jobs.service.gov.uk/jobs/6abfd2bce7d4cf609bd4a83b",
+      "confidence": "Automated daily search lead; verify employer vacancy"
+    },
+    {
+      "org": "UK Government",
+      "sector": "Government",
+      "location": "UK",
       "title": "View job - One Stop - Database Developer - Work Hub",
       "salary": "Not captured",
       "posted": "Aug 6, 2026",
@@ -333,6 +346,15 @@
       "match": "Exact .NET",
       "tech": ".NET / C# (detected in search result)",
       "url": "https://www.jobs.service.gov.uk/jobs/6a74cf61dd77f4c891a5ec92"
+    },
+    {
+      "org": "UK Government",
+      "sector": "Government",
+      "title": "View job - Senior Software Developer - Work Hub",
+      "date": "2026-10-21",
+      "match": "Exact .NET",
+      "tech": ".NET / C# (detected in search result)",
+      "url": "https://www.jobs.service.gov.uk/jobs/6abfd2bce7d4cf609bd4a83b"
     }
   ],
   "coverage": [
@@ -487,5 +509,5 @@
     "exact_match_rule": "Exact .NET requires explicit .NET/C#/ASP.NET/.NET Core evidence in the vacancy.",
     "related_match_rule": "Related covers Microsoft/Azure/Power Platform/development roles where .NET is not explicit."
   },
-  "updated_at": "2026-10-20T07:30:01.122228+00:00"
+  "updated_at": "2026-10-21T07:32:21.861961+00:00"
 }
