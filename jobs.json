@@ -1,6 +1,19 @@
 {
   "active": [
     {
+      "org": "Higher-education provider",
+      "sector": "University",
+      "location": "UK",
+      "title": "Software Development Manager at The Royal Veterinary ...",
+      "salary": "Not captured",
+      "posted": "23 hours ago",
+      "closing": "",
+      "match": "Exact .NET",
+      "tech": ".NET / C# (detected in search result)",
+      "url": "https://www.jobs.ac.uk/job/DTN936/software-development-manager",
+      "confidence": "Automated daily search lead; verify employer vacancy"
+    },
+    {
       "org": "UK Government",
       "sector": "Government",
       "location": "UK",
@@ -399,6 +412,15 @@
       "match": "Exact .NET",
       "tech": ".NET / C# (detected in search result)",
       "url": "https://www.jobs.service.gov.uk/jobs/6abfd6eb7f91ed8636db6b20"
+    },
+    {
+      "org": "Higher-education provider",
+      "sector": "University",
+      "title": "Software Development Manager at The Royal Veterinary ...",
+      "date": "2026-11-07",
+      "match": "Exact .NET",
+      "tech": ".NET / C# (detected in search result)",
+      "url": "https://www.jobs.ac.uk/job/DTN936/software-development-manager"
     }
   ],
   "coverage": [
@@ -553,5 +575,5 @@
     "exact_match_rule": "Exact .NET requires explicit .NET/C#/ASP.NET/.NET Core evidence in the vacancy.",
     "related_match_rule": "Related covers Microsoft/Azure/Power Platform/development roles where .NET is not explicit."
   },
-  "updated_at": "2026-11-06T15:27:09.839206+00:00"
+  "updated_at": "2026-11-07T14:28:40.531206+00:00"
 }
