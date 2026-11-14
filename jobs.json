@@ -4,6 +4,19 @@
       "org": "UK Government",
       "sector": "Government",
       "location": "UK",
+      "title": "25 .NET Developer jobs in M1 1AR (within 10 miles)",
+      "salary": "Not captured",
+      "posted": "",
+      "closing": "",
+      "match": "Exact .NET",
+      "tech": ".NET / C# (detected in search result)",
+      "url": "https://www.jobs.service.gov.uk/jobs/search?keywords=.NET%20Developer&location=M11AR&pageNumber=1",
+      "confidence": "Automated daily search lead; verify employer vacancy"
+    },
+    {
+      "org": "UK Government",
+      "sector": "Government",
+      "location": "UK",
       "title": "View job - .NET Software Developer - Work Hub",
       "salary": "Not captured",
       "posted": "Sep 5, 2026",
@@ -487,6 +500,15 @@
       "match": "Exact .NET",
       "tech": ".NET / C# (detected in search result)",
       "url": "https://www.jobs.service.gov.uk/jobs/6a9b6a4dee4c2fabf6afec26"
+    },
+    {
+      "org": "UK Government",
+      "sector": "Government",
+      "title": "25 .NET Developer jobs in M1 1AR (within 10 miles)",
+      "date": "2026-11-14",
+      "match": "Exact .NET",
+      "tech": ".NET / C# (detected in search result)",
+      "url": "https://www.jobs.service.gov.uk/jobs/search?keywords=.NET%20Developer&location=M11AR&pageNumber=1"
     }
   ],
   "coverage": [
@@ -641,5 +663,5 @@
     "exact_match_rule": "Exact .NET requires explicit .NET/C#/ASP.NET/.NET Core evidence in the vacancy.",
     "related_match_rule": "Related covers Microsoft/Azure/Power Platform/development roles where .NET is not explicit."
   },
-  "updated_at": "2026-11-13T15:45:26.622078+00:00"
+  "updated_at": "2026-11-14T14:36:25.583513+00:00"
 }
